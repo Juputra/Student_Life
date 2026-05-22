@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_tugas" android:title="Tugas" android:icon="@android:drawable/ic_menu_agenda"/>
+    <item android:id="@+id/menu_jadwal" android:title="Jadwal" android:icon="@android:drawable/ic_menu_my_calendar"/>
+    <item android:id="@+id/menu_note" android:title="Notes" android:icon="@android:drawable/ic_menu_edit"/>
+    <item android:id="@+id/menu_absensi" android:title="Absensi" android:icon="@android:drawable/ic_menu_manage"/>
+</menu>
