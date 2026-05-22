@@ -5,10 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Tugas::class], version = 1, exportSchema = false)
+@Database(entities = [Tugas::class, Jadwal::class, Note::class, Absensi::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun tugasDao(): TugasDao
+    abstract fun jadwalDao(): JadwalDao
+    abstract fun noteDao(): NoteDao
+    abstract fun absensiDao(): AbsensiDao
 
     companion object {
         @Volatile
