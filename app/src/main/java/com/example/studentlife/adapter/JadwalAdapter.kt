@@ -32,7 +32,13 @@ class JadwalAdapter(
         val item = list[position]
         holder.matpel.text = item.mata_pelajaran
         holder.ruangan.text = "Ruang: ${item.ruangan}"
-        holder.catatan.text = "Bawa: ${item.catatan_barang}"
+        
+        if (item.catatan_barang.isNotEmpty()) {
+            holder.catatan.visibility = View.VISIBLE
+            holder.catatan.text = "Bawa: ${item.catatan_barang}"
+        } else {
+            holder.catatan.visibility = View.GONE
+        }
 
         holder.btnEdit.setOnClickListener { onEditClick(item) }
         holder.btnDelete.setOnClickListener { onDeleteClick(item) }

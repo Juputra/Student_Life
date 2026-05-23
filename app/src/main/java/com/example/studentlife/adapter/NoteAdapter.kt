@@ -17,6 +17,7 @@ class NoteAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvJudul: TextView = view.findViewById(R.id.txt_judul_note)
         val tvIsi: TextView = view.findViewById(R.id.txt_isi_note)
+        val tvTanggal: TextView = view.findViewById(R.id.txt_tanggal_note)
         val btnDelete: ImageButton = view.findViewById(R.id.btn_delete_note)
     }
 
@@ -28,7 +29,8 @@ class NoteAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.tvJudul.text = item.judul
-        holder.tvIsi.text = item.isi_catatan
+        holder.tvIsi.text = item.isi
+        holder.tvTanggal.text = item.tanggal
         holder.btnDelete.setOnClickListener { onDeleteClick(item) }
     }
 

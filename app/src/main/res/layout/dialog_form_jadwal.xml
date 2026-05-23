@@ -71,7 +71,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/in_catatan_jadwal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
