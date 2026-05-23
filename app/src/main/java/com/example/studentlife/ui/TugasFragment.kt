@@ -20,7 +20,7 @@ import com.example.studentlife.adapter.TugasAdapter
 import com.example.studentlife.database.Tugas
 import com.example.studentlife.viewmodel.TugasViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -39,7 +39,7 @@ class TugasFragment : Fragment() {
         val rvSelesai = view.findViewById<RecyclerView>(R.id.rv_tugas_selesai)
         val tvEmptyAktif = view.findViewById<TextView>(R.id.tv_empty_aktif)
         val tvEmptySelesai = view.findViewById<TextView>(R.id.tv_empty_selesai)
-        val fabTambah = view.findViewById<FloatingActionButton>(R.id.fab_tambah_tugas)
+        val fabTambah = view.findViewById<ExtendedFloatingActionButton>(R.id.fab_tambah_tugas)
 
         viewModel = ViewModelProvider(this)[TugasViewModel::class.java]
 

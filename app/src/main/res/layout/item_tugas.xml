@@ -5,55 +5,77 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:stateListAnimator="@animator/card_lift"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical">
+        android:padding="16dp">
 
         <CheckBox
             android:id="@+id/cb_selesai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="#6200EE"/>
+            app:buttonTint="@color/primary" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="8dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/card_matpel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_primary"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
                 android:text="Mata Kuliah"
-                android:textColor="#6200EE"
-                android:textStyle="bold"
-                android:textSize="12sp" />
+                android:textColor="@color/primary"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/card_judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="Judul Tugas"
+                android:textColor="@color/text_main"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#111827"/>
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/card_deadline"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="25 Mei 2026, 08:00"
-                android:textColor="#E53935"
-                android:textSize="13sp"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@android:drawable/ic_menu_recent_history"
+                    app:tint="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/card_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="25 Mei 2026, 08:00"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -63,19 +85,19 @@
 
             <ImageButton
                 android:id="@+id/btn_edit"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_menu_edit"
-                app:tint="#4B5563" />
+                app:tint="@color/text_secondary" />
 
             <ImageButton
                 android:id="@+id/btn_delete"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_menu_delete"
-                app:tint="#EF4444" />
+                app:tint="#FF5252" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

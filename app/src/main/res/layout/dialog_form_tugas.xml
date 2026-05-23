@@ -3,52 +3,155 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="24dp">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/tv_dialog_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tambah Tugas"
+            android:layout_marginBottom="24dp"
+            android:text="Tambah Tugas Baru"
+            android:textColor="@color/text_main"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#111827"
-            android:layout_marginBottom="16dp"/>
+            android:textStyle="bold" />
 
-        <EditText android:id="@+id/in_judul" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Judul Tugas (Wajib)"/>
-        <EditText android:id="@+id/in_matpel" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mata Kuliah (Wajib)"/>
-        <EditText
-            android:id="@+id/in_deadline"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pilih Deadline (Wajib)"
-            android:drawableEnd="@android:drawable/ic_menu_today"
-            android:focusable="false"
-            android:clickable="true"/>
+            android:layout_marginBottom="16dp"
+            android:hint="Judul Tugas">
 
-        <EditText android:id="@+id/in_deskripsi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Deskripsi Singkat"/>
-        <EditText
-            android:id="@+id/in_instruksi"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_judul"
+                android:hint="Judul Tugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Instruksi Pengerjaan"
-            android:inputType="textMultiLine"
-            android:minLines="2"
-            android:gravity="top"/>
-        <EditText android:id="@+id/in_format" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Format (Contoh: PDF)"/>
-        <EditText android:id="@+id/in_ketentuan" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ketentuan Lain"/>
-        <EditText android:id="@+id/in_pengajar" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nama Dosen"/>
+            android:layout_marginBottom="16dp"
+            android:hint="Mata Kuliah">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_matpel"
+                android:hint="Mata Kuliah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Pilih Deadline"
+            app:endIconDrawable="@android:drawable/ic_menu_today"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_deadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Deskripsi Singkat">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_deskripsi"
+                android:layout_width="match_parent"
+                android:hint="Deskripsi"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Instruksi Pengerjaan">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_instruksi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:hint="Format">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_format"
+                    android:hint="PDF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Nama Pengajar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_pengajar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Ketentuan Lain">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_ketentuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_simpan_dialog"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Simpan"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="32dp"
+            android:text="Simpan Tugas"
+            app:cornerRadius="12dp" />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

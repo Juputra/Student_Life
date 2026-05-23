@@ -15,43 +15,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="match_parent"
+            android:background="@color/accent" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <TextView
-                android:id="@+id/txt_matkul"
-                android:layout_width="wrap_content"
+                android:id="@+id/txt_judul_note"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pemrograman Mobile"
+                android:text="Judul Catatan"
                 android:textColor="@color/text_main"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txt_persentase"
-                android:layout_width="wrap_content"
+                android:id="@+id/txt_isi_note"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Kehadiran: 80%"
-                android:textColor="@color/primary"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="Isi catatan singkat di sini..."
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_hadir"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Absen"
-            app:cornerRadius="12dp"
-            app:icon="@android:drawable/ic_input_add" />
+        <ImageButton
+            android:id="@+id/btn_delete_note"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_delete"
+            app:tint="#FF5252" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
