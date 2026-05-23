@@ -5,10 +5,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "tabel_jadwal")
 data class Jadwal(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val hari: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val hari: String, // "Senin", "Selasa", dll
     val mata_pelajaran: String,
+    val jam_mulai: String,
+    val jam_selesai: String,
     val ruangan: String,
-    val catatan_barang: String
+    val bawaan_spesifik: String, // Contoh: "Laptop, Jas Lab"
+    val warna_hex: String // Contoh: "#EF4444" (Merah)
 )

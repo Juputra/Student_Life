@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/det_jadwal_hari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Senin"
+        android:textStyle="bold"
+        android:textColor="#6200EE"
+        android:textSize="14sp"
+        tools:text="Senin" />
+
+    <TextView
+        android:id="@+id/det_jadwal_matpel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mata Pelajaran"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="#111827"
+        android:layout_marginTop="4dp"
+        tools:text="Matematika" />
+
+    <TextView
+        android:id="@+id/det_jadwal_jam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="08:00 - 10:00"
+        android:textColor="#EF4444"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        tools:text="08:00 - 10:00" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E5E7EB"
+        android:layout_marginVertical="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ruangan / Tempat:"
+        android:textStyle="bold"
+        android:textColor="#4B5563" />
+
+    <TextView
+        android:id="@+id/det_jadwal_ruangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Ruangan..."
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        tools:text="Lab Komputer" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bawaan Khusus:"
+        android:textStyle="bold"
+        android:textColor="#4B5563" />
+
+    <TextView
+        android:id="@+id/det_jadwal_bawaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bawaan..."
+        android:layout_marginTop="2dp"
+        tools:text="Laptop, Flashdisk" />
+</LinearLayout>
