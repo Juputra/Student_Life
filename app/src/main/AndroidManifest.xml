@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentLife">
         <activity
+            android:name=".ui.TugasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.NotesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
