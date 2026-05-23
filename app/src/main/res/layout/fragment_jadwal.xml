@@ -12,82 +12,62 @@
         android:background="@android:color/transparent"
         app:elevation="0dp">
 
-        <LinearLayout
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="24dp" android:paddingTop="32dp" android:paddingBottom="8dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jadwal Pelajaran" android:textColor="@color/text_main" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_tanggal_aktif" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Senin, 25 Mei 2026" android:textColor="@color/text_secondary" android:textSize="14sp" />
+        </LinearLayout>
+
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:scrollbars="none"
+            android:clipToPadding="false"
             android:paddingHorizontal="24dp"
-            android:paddingTop="32dp"
             android:paddingBottom="16dp">
-
-            <TextView
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_hari"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jadwal Pelajaran"
-                android:textColor="@color/text_main"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Lihat dan kelola jadwal mingguanmu"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <!-- Filter Hari -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="Pilih Hari"
-                        app:startIconDrawable="@android:drawable/ic_menu_today"
-                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/input_hari"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_lihat_hari"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Cari"
-                        style="@style/Widget.Material3.Button.TonalButton"
-                        app:cornerRadius="8dp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
+                app:singleSelection="true"
+                app:selectionRequired="true"/>
+        </HorizontalScrollView>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_jadwal"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:layoutAnimation="@anim/layout_animation_fall_down"
         android:paddingBottom="100dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/item_jadwal" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout android:id="@+id/section_tugas" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#FEE2E2" android:padding="16dp" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:visibility="gone">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🔥 JANGAN LUPA HARI INI:" android:textStyle="bold" android:textColor="#B91C1C"/>
+                <TextView android:id="@+id/tv_list_tugas" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#991B1B" android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_jadwal" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" tools:listitem="@layout/item_jadwal" />
+            <TextView android:id="@+id/tv_empty_jadwal" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tidak ada jadwal. Waktunya istirahat! ☕" android:gravity="center" android:padding="24dp" android:visibility="gone" android:textColor="@color/text_secondary"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+
+                <LinearLayout android:id="@+id/card_seragam" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="@drawable/bg_badge_primary" android:padding="16dp" android:layout_marginBottom="16dp" android:clickable="true" android:focusable="true">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👕 Seragam:" android:textStyle="bold" android:textColor="@color/primary"/>
+                    <TextView android:id="@+id/tv_seragam_harian" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Belum diatur (Ketuk untuk isi)" android:textColor="@color/text_main" android:layout_marginStart="8dp" android:textStyle="italic"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Persiapan Tas 🎒" android:textSize="18sp" android:textStyle="bold" android:textColor="@color/text_main" android:layout_marginBottom="8dp"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_checklist" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <EditText android:id="@+id/in_barang_dadakan" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:background="@drawable/bg_badge_primary" android:hint="  Tambah barang dadakan..." android:textSize="14sp" android:inputType="text"/>
+                    <Button android:id="@+id/btn_tambah_dadakan" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tambah" android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_tambah_jadwal"

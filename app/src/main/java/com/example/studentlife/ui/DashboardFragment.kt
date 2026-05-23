@@ -51,7 +51,12 @@ class DashboardFragment : Fragment() {
         tvDate.text = sdf.format(Calendar.getInstance().time)
 
         // Setup Jadwal Adapter
-        jadwalAdapter = JadwalAdapter(arrayListOf())
+        jadwalAdapter = JadwalAdapter(
+            arrayListOf(),
+            onItemClick = { pindahMenu(R.id.menu_jadwal) },
+            onEditClick = { pindahMenu(R.id.menu_jadwal) },
+            onDeleteClick = { pindahMenu(R.id.menu_jadwal) }
+        )
         rvJadwal.layoutManager = LinearLayoutManager(context)
         rvJadwal.adapter = jadwalAdapter
 
@@ -67,8 +72,8 @@ class DashboardFragment : Fragment() {
 
         // Observe Jadwal Hari Ini
         val hariIni = SimpleDateFormat("EEEE", localeID).format(Calendar.getInstance().time)
-        jadwalViewModel.muatJadwalHari(hariIni)
-        jadwalViewModel.listJadwal.observe(viewLifecycleOwner) { list ->
+        jadwalViewModel.muatDataHarian(hariIni, Calendar.getInstance().time)
+        jadwalViewModel.listJadwalHariIni.observe(viewLifecycleOwner) { list ->
             jadwalAdapter.updateData(list.take(2))
         }
 

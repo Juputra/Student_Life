@@ -16,9 +16,9 @@ class StudentRepository(private val db: AppDatabase) {
 
     // --- FITUR JADWAL ---
     suspend fun insertJadwal(jadwal: Jadwal) = db.jadwalDao().insertJadwal(jadwal)
-    suspend fun updateJadwal(jadwal: Jadwal) = db.jadwalDao().updateJadwal(jadwal)
+    suspend fun updateJadwal(jadwal: Jadwal) = db.jadwalDao().insertJadwal(jadwal)
     suspend fun deleteJadwal(jadwal: Jadwal) = db.jadwalDao().deleteJadwal(jadwal)
-    suspend fun getJadwalByHari(hari: String): List<Jadwal> = db.jadwalDao().getJadwalByHari(hari)
+    suspend fun getJadwalByHari(hari: String) = db.jadwalDao().getJadwalByHari(hari)
 
     // --- FITUR NOTE ---
     suspend fun insertNote(note: Note) = db.noteDao().insertNote(note)
