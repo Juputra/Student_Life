@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -21,6 +20,7 @@ import com.example.studentlife.database.Tugas
 import com.example.studentlife.viewmodel.TugasViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -39,6 +39,8 @@ class TugasFragment : Fragment() {
         val rvSelesai = view.findViewById<RecyclerView>(R.id.rv_tugas_selesai)
         val tvEmptyAktif = view.findViewById<TextView>(R.id.tv_empty_aktif)
         val tvEmptySelesai = view.findViewById<TextView>(R.id.tv_empty_selesai)
+
+        // MENGGUNAKAN EXTENDED FAB DARI MAIN UI
         val fabTambah = view.findViewById<ExtendedFloatingActionButton>(R.id.fab_tambah_tugas)
 
         viewModel = ViewModelProvider(this)[TugasViewModel::class.java]
@@ -82,7 +84,6 @@ class TugasFragment : Fragment() {
             adapterAktif.updateData(listAktif)
             adapterSelesai.updateData(listSelesai)
 
-            // Atur tulisan peringatan jika kosong otomatis
             tvEmptyAktif.visibility = if (listAktif.isEmpty()) View.VISIBLE else View.GONE
             tvEmptySelesai.visibility = if (listSelesai.isEmpty()) View.VISIBLE else View.GONE
         }
@@ -102,7 +103,7 @@ class TugasFragment : Fragment() {
                 dialog.dismiss()
             }
             .setNegativeButton("Batal") { dialog, _ ->
-                viewModel.muatTugas() // Refresh data untuk memulihkan visual checkbox jika batal centang
+                viewModel.muatTugas()
                 dialog.dismiss()
             }
             .setCancelable(false)
@@ -124,6 +125,12 @@ class TugasFragment : Fragment() {
         view.findViewById<TextView>(R.id.det_ketentuan).text = tugas.ketentuan.ifEmpty { "-" }
         view.findViewById<TextView>(R.id.det_pengajar).text = tugas.nama_pengajar.ifEmpty { "-" }
 
+        // FITUR BARU DARI MAIN: Mengaktifkan tombol tutup dialog
+        val btnClose = view.findViewById<Button>(R.id.btn_close_dialog)
+        btnClose?.setOnClickListener {
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
 
@@ -134,14 +141,16 @@ class TugasFragment : Fragment() {
         dialog.setContentView(view)
 
         val tvTitle = view.findViewById<TextView>(R.id.tv_dialog_title)
-        val inJudul = view.findViewById<EditText>(R.id.in_judul)
-        val inMatpel = view.findViewById<EditText>(R.id.in_matpel)
-        val inDeadline = view.findViewById<EditText>(R.id.in_deadline)
-        val inDeskripsi = view.findViewById<EditText>(R.id.in_deskripsi)
-        val inInstruksi = view.findViewById<EditText>(R.id.in_instruksi)
-        val inFormat = view.findViewById<EditText>(R.id.in_format)
-        val inKetentuan = view.findViewById<EditText>(R.id.in_ketentuan)
-        val inPengajar = view.findViewById<EditText>(R.id.in_pengajar)
+
+        // MENGGUNAKAN TextInputEditText AGAR SINKRON DENGAN MATERIAL3 DARI MAIN UI
+        val inJudul = view.findViewById<TextInputEditText>(R.id.in_judul)
+        val inMatpel = view.findViewById<TextInputEditText>(R.id.in_matpel)
+        val inDeadline = view.findViewById<TextInputEditText>(R.id.in_deadline)
+        val inDeskripsi = view.findViewById<TextInputEditText>(R.id.in_deskripsi)
+        val inInstruksi = view.findViewById<TextInputEditText>(R.id.in_instruksi)
+        val inFormat = view.findViewById<TextInputEditText>(R.id.in_format)
+        val inKetentuan = view.findViewById<TextInputEditText>(R.id.in_ketentuan)
+        val inPengajar = view.findViewById<TextInputEditText>(R.id.in_pengajar)
         val btnSimpan = view.findViewById<Button>(R.id.btn_simpan_dialog)
 
         if (tugasUntukDiedit != null) {

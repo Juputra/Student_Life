@@ -17,7 +17,7 @@ import java.util.Locale
 
 class TugasAdapter(
     private var list: List<Tugas>,
-    private val onItemClick: (Tugas) -> Unit, // Klik kartu untuk detail
+    private val onItemClick: (Tugas) -> Unit,
     private val onEditClick: (Tugas) -> Unit,
     private val onDeleteClick: (Tugas) -> Unit,
     private val onCheckChange: (Tugas, Boolean) -> Unit
@@ -49,6 +49,7 @@ class TugasAdapter(
         // Klik seluruh area item untuk melihat detail lengkap
         holder.itemView.setOnClickListener { onItemClick(item) }
 
+        // Logika Corettan dan Warna Teks Deadline dari SOLO
         if (item.isSelesai) {
             holder.judul.paintFlags = holder.judul.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             holder.deadline.setTextColor(Color.parseColor("#9CA3AF"))
@@ -75,8 +76,7 @@ class TugasAdapter(
 
         holder.cbSelesai.setOnClickListener {
             val checked = holder.cbSelesai.isChecked
-            // Kembalikan ke status semula dulu, perpindahan asli diatur setelah konfirmasi dialog sukses
-            holder.cbSelesai.isChecked = !checked
+            holder.cbSelesai.isChecked = !checked // Cegah visual berubah sebelum dialog dikonfirmasi
             onCheckChange(item, checked)
         }
 

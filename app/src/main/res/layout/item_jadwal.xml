@@ -12,85 +12,23 @@
     app:cardElevation="2dp"
     app:strokeWidth="0dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <View android:id="@+id/garis_warna" android:layout_width="6dp" android:layout_height="match_parent" android:background="@color/color_jadwal" />
 
-        <View
-            android:layout_width="6dp"
-            android:layout_height="match_parent"
-            android:background="@color/color_jadwal" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            <TextView android:id="@+id/txt_matpel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nama Mata Pelajaran" android:textColor="@color/text_main" android:textSize="18sp" android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txt_matpel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nama Mata Pelajaran"
-                android:textColor="@color/text_main"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:src="@android:drawable/ic_menu_mylocation"
-                    app:tint="@color/text_secondary" />
-
-                <TextView
-                    android:id="@+id/txt_ruangan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:text="Ruang 3.02"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:gravity="center_vertical" android:orientation="horizontal">
+                <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@android:drawable/ic_menu_mylocation" app:tint="@color/text_secondary" />
+                <TextView android:id="@+id/txt_ruangan" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Ruang 3.02" android:textColor="@color/text_secondary" android:textSize="14sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txt_catatan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Jangan lupa bawa buku modul."
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:textStyle="italic" />
+            <TextView android:id="@+id/txt_catatan" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Catatan" android:textColor="@color/text_secondary" android:textSize="13sp" android:textStyle="italic" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/btn_edit_jadwal"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@android:drawable/ic_menu_edit"
-                    app:tint="@color/primary" />
-
-                <ImageView
-                    android:id="@+id/btn_delete_jadwal"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@android:drawable/ic_menu_delete"
-                    app:tint="#FF5252" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="end" android:orientation="horizontal">
+                <ImageView android:id="@+id/btn_edit_jadwal" android:layout_width="24dp" android:layout_height="24dp" android:layout_marginEnd="16dp" android:src="@android:drawable/ic_menu_edit" app:tint="@color/primary" />
+                <ImageView android:id="@+id/btn_delete_jadwal" android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_delete" app:tint="#FF5252" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
