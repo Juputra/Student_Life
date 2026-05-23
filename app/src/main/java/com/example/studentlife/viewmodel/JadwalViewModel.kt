@@ -29,7 +29,20 @@ class JadwalViewModel(application: Application) : AndroidViewModel(application) 
     fun tambahJadwal(jadwal: Jadwal) {
         viewModelScope.launch {
             repository.insertJadwal(jadwal)
-            // Setelah ditambah, langsung perbarui tampilan sesuai hari yang baru diinput
+            muatJadwalHari(jadwal.hari)
+        }
+    }
+
+    fun updateJadwal(jadwal: Jadwal) {
+        viewModelScope.launch {
+            repository.updateJadwal(jadwal)
+            muatJadwalHari(jadwal.hari)
+        }
+    }
+
+    fun hapusJadwal(jadwal: Jadwal) {
+        viewModelScope.launch {
+            repository.deleteJadwal(jadwal)
             muatJadwalHari(jadwal.hari)
         }
     }

@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- UI Colors -->
+    <color name="primary">#6200EE</color>
+    <color name="primary_light">#D1C4E9</color>
+    <color name="accent">#03DAC5</color>
+    <color name="bg_main">#F8F9FE</color>
+
+    <!-- Text Colors -->
+    <color name="text_main">#1A1C1E</color>
+    <color name="text_secondary">#6C727A</color>
+
+    <!-- Feature Specific -->
+    <color name="color_jadwal">#FF7043</color>
 </resources>

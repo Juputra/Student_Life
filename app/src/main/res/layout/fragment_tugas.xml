@@ -1,92 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9FAFB">
+    android:background="@color/bg_main">
 
-    <androidx.core.widget.NestedScrollView
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="80dp">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="24dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="16dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manajemen Tugas"
+                android:textColor="@color/text_main"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Selesaikan tepat waktu, ya!"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="100dp">
+
+            <!-- Bagian Aktif -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
                 android:text="Tugas Aktif"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#111827"
-                android:layout_marginBottom="8dp"/>
+                android:textColor="@color/text_main"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_empty_aktif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tidak ada tugas"
-                android:textColor="#9CA3AF"
-                android:textSize="14sp"
+                android:background="@drawable/bg_badge_primary"
                 android:gravity="center"
-                android:padding="24dp"
-                android:visibility="gone"/>
+                android:padding="32dp"
+                android:text="Hore! Tidak ada tugas aktif."
+                android:textColor="@color/primary"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tugas_aktif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"/>
+                android:layoutAnimation="@anim/layout_animation_fall_down"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@android:layout/simple_list_item_1" />
 
+            <!-- Divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#E5E7EB"
-                android:layout_marginVertical="24dp"/>
+                android:layout_marginVertical="32dp"
+                android:background="#E5E7EB" />
 
+            <!-- Bagian Selesai -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sudah Selesai"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#4B5563"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="12dp"
+                android:text="Selesai Dikerjakan"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_empty_selesai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Belum ada tugas yang selesai"
-                android:textColor="#9CA3AF"
-                android:textSize="14sp"
                 android:gravity="center"
-                android:padding="24dp"
-                android:visibility="gone"/>
+                android:padding="16dp"
+                android:text="Belum ada riwayat tugas selesai."
+                android:textColor="@color/text_secondary"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tugas_selesai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"/>
+                android:layoutAnimation="@anim/layout_animation_fall_down"
+                android:nestedScrollingEnabled="false" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_tambah_tugas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:src="@android:drawable/ic_input_add"
-        app:tint="@android:color/white"
-        app:backgroundTint="#6200EE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Tugas Baru"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/primary"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconTint="@color/white" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
