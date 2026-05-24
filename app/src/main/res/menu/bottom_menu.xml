@@ -9,9 +9,9 @@
         android:icon="@android:drawable/ic_menu_agenda"
         android:title="Tugas" />
     <item
-        android:id="@+id/menu_timer"
-        android:icon="@android:drawable/ic_menu_recent_history"
-        android:title="Fokus" />
+        android:id="@+id/menu_notes"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Catatan" />
     <item
         android:id="@+id/menu_jadwal"
         android:icon="@android:drawable/ic_menu_my_calendar"

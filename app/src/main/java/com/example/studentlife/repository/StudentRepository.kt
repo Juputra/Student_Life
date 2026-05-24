@@ -25,6 +25,7 @@ class StudentRepository(private val db: AppDatabase) {
     suspend fun updateNote(note: Note) = db.noteDao().updateNote(note)
     suspend fun deleteNote(note: Note) = db.noteDao().deleteNote(note)
     suspend fun getAllNotes(): List<Note> = db.noteDao().getAllNotes()
+    suspend fun searchNotes(keyword: String): List<Note> = db.noteDao().searchNotes(keyword)
 
     // --- FITUR ABSENSI ---
     suspend fun insertAbsensi(absensi: Absensi) = db.absensiDao().insertAbsensi(absensi)

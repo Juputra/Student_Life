@@ -1,14 +1,10 @@
 package com.example.studentlife.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface NoteDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note: Note)
 
     @Update
@@ -17,6 +13,10 @@ interface NoteDao {
     @Delete
     suspend fun deleteNote(note: Note)
 
-    @Query("SELECT * FROM tabel_note ORDER BY id DESC")
+    // Catatan yang di-PIN akan selalu muncul paling atas
+    @Query("SELECT * FROM tabel_note ORDER BY isPinned DESC, id DESC")
     suspend fun getAllNotes(): List<Note>
+
+    @Query("SELECT * FROM tabel_note WHERE judul LIKE '%' || :keyword || '%' OR isi LIKE '%' || :keyword || '%' ORDER BY isPinned DESC, id DESC")
+    suspend fun searchNotes(keyword: String): List<Note>
 }

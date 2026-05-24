@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.studentlife.ui.AbsensiFragment
 import com.example.studentlife.ui.DashboardFragment
 import com.example.studentlife.ui.JadwalFragment
+import com.example.studentlife.ui.NoteFragment
 import com.example.studentlife.ui.TimerFragment
 import com.example.studentlife.ui.TugasFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.menu_dashboard -> gantiFragment(DashboardFragment())
                 R.id.menu_tugas -> gantiFragment(TugasFragment())
-                R.id.menu_timer -> gantiFragment(TimerFragment())
+                R.id.menu_notes -> gantiFragment(NoteFragment()) // UBAH DI SINI
                 R.id.menu_jadwal -> gantiFragment(JadwalFragment())
                 R.id.menu_absensi -> gantiFragment(AbsensiFragment())
             }
