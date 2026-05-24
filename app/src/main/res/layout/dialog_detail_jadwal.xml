@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/rounded_dialog_bg">
+
+    <TextView
+        android:id="@+id/det_jadwal_hari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jadwal Hari"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/det_jadwal_matpel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mata Pelajaran"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="@color/text_main"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/det_jadwal_jam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="08:00 - 10:00"
+        android:textColor="#EF4444"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E5E7EB"
+        android:layout_marginVertical="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ruangan / Tempat:"
+        android:textStyle="bold"
+        android:textColor="@color/text_secondary" />
+
+    <TextView
+        android:id="@+id/det_jadwal_ruangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Ruangan..."
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textColor="@color/text_main"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bawaan Khusus:"
+        android:textStyle="bold"
+        android:textColor="@color/text_secondary" />
+
+    <TextView
+        android:id="@+id/det_jadwal_bawaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bawaan..."
+        android:layout_marginTop="2dp"
+        android:textColor="@color/text_main"/>
+</LinearLayout>
