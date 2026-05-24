@@ -78,7 +78,7 @@ class DashboardFragment : Fragment() {
         }
 
         // Navigasi
-        cardTimer.setOnClickListener { pindahMenu(R.id.menu_timer) }
+        cardTimer.setOnClickListener { pindahMenu(R.id.menu_notes) }
         btnCekTugas.setOnClickListener { pindahMenu(R.id.menu_tugas) }
         cardNotes.setOnClickListener {
             parentFragmentManager.beginTransaction()
